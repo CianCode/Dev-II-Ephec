@@ -33,6 +33,10 @@ def traceroute(target, progressive, output_file):
                     output.write("\n".join(ips) + "\n")
             else:
                 print("Erreur lors de l'exécution de traceroute :", result.stderr)
+
+    except subprocess.SubprocessError as e:
+        print("Erreur lors de l'exécution de traceroute :", e)
+
     finally:
         if output:
             output.close()
